@@ -39,12 +39,13 @@ const Form = styled.form`
   button,
   input[type='submit'] {
     width: auto;
-    background: red;
+    background: brown;
     color: white;
     border: 0;
     font-size: 2rem;
     font-weight: 600;
     padding: 0.5rem 1.2rem;
+    margin-right: 2px;
   }
   fieldset {
     border: 0;
