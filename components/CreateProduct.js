@@ -1,8 +1,10 @@
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
+import Router from 'next/router';
 import useForm from '../lib/useForm';
 import Form from './styles/Form';
 import DisplayError from './ErrorMessage';
+import { ALL_PPODUCTS_QUERY } from './Products';
 
 const CREATE_PRODUCT_MUTATION = gql`
   mutation CREATE_PRODUCT_MUTATION(
@@ -42,14 +44,19 @@ function CreateProduct() {
     CREATE_PRODUCT_MUTATION,
     {
       variables: values,
+      refetchQueries: [{ query: ALL_PPODUCTS_QUERY }], // refetching the queriy after mutation
     }
   );
 
+ 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const res = await createProduct();
     console.log(res);
     clearForm();
+    Router.push({
+      pathname: `/product/${res.data.createProduct.id}`,
+    });
   };
 
   return (
