@@ -8,9 +8,9 @@ import { perPage } from '../config';
 // todo: render actual links -DONE
 // todo: allow dynamic routing -DONE
 // todo: filter product for current page -DONE
-// todo: cache invalidation
+// todo: cache invalidation- DONE
 
-const PAGINATION_QUERY = gql`
+export const PAGINATION_QUERY = gql`
   query PAGINATION_QUERY {
     _allProductsMeta {
       count
