@@ -12,7 +12,9 @@ export const GET_CURRENT_USER = gql`
     }
   }
 `;
+
 export function useUser() {
   const { data } = useQuery(GET_CURRENT_USER);
-  return data?.authenticateItem;
+  console.log(`NAVIGATIONN: ${data}`);
+  return data?.authenticatedItem;
 }

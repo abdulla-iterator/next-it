@@ -1,9 +1,11 @@
 import Link from 'next/link';
+import SignOut from './SignOut';
 import NavStyles from './styles/NavStyles';
-import { GET_CURRENT_USER, useUser } from './User';
+import { useUser } from './User';
 
 function Nav() {
   const user = useUser();
+  console.log(`NAVIGATION: ${user}`);
   return (
     <NavStyles>
       <Link href="/products">Products</Link>
@@ -12,6 +14,7 @@ function Nav() {
           <Link href="/sell">Sell</Link>
           <Link href="/orders">Orders</Link>
           <Link href="/account">Account</Link>
+          <SignOut />
         </>
       )}
       {!user && (
