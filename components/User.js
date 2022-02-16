@@ -8,6 +8,21 @@ export const GET_CURRENT_USER = gql`
         id
         email
         name
+        cart {
+          id
+          quantity
+          product {
+            id
+            price
+            photo {
+              image {
+                publicUrlTransformed
+              }
+            }
+            name
+            description
+          }
+        }
       }
     }
   }
@@ -15,6 +30,6 @@ export const GET_CURRENT_USER = gql`
 
 export function useUser() {
   const { data } = useQuery(GET_CURRENT_USER);
-  console.log(`NAVIGATIONN: ${data}`);
+  // console.log(`NAVIGATIONN: ${data}`);
   return data?.authenticatedItem;
 }
