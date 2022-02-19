@@ -48,7 +48,6 @@ function CreateProduct() {
     }
   );
 
- 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const res = await createProduct();

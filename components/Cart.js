@@ -7,6 +7,7 @@ import formatMoney from '../lib/formatMoney';
 import calTotalPrice from '../lib/calTotalPrice';
 import CloseButton from './styles/CloseButton';
 import RemoveFromCart from './RemoveFromCart';
+import Checkout from './Checkout';
 
 const CartItemStyles = styled.li`
   padding: 1rem 0;
@@ -32,7 +33,7 @@ function CartItem({ cartItem }) {
         <h3>{product.name}</h3>
         <p>{formatMoney(product.price * cartItem.quantity)}-</p>
         <em>
-          {cartItem.quantity} X {formatMoney(product.price)}{' '}
+          {cartItem.quantity} X {formatMoney(product.price)}
         </em>
       </div>
       <RemoveFromCart id={cartItem.id} />
@@ -56,6 +57,7 @@ export default function Cart() {
       </ul>
       <footer>
         <h3> Total Billing Amount: {formatMoney(calTotalPrice(user.cart))}</h3>
+        <Checkout />
       </footer>
     </CartStyles>
   );
